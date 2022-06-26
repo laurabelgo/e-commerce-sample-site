@@ -1,0 +1,25 @@
+h1 {
+    text-align: center;
+}
+
+form {
+    margin: 10em auto;
+    width: 1000px;
+    padding: 2em;
+    border: 1px solid black;
+    border-radius: 1em;
+    background-color: red;
+    filter: drop-shadow(1px 1px 1px black);
+}
+
+label {
+    text-shadow: 1px 1px black;
+    color: white;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+    padding:2em;
+}
