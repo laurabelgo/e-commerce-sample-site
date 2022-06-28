@@ -1,42 +1,30 @@
 body {
-    background-color: rgb(252, 206, 150, 0.5);
-  }
-  
-  h1 {
-    text-align: center;
-  }
-  
-  form {
-    margin: 10em auto;
-    min-width: 400px;
-    max-width: 1000px;
-    padding: 2em;
-    border: 1px solid #507EFC;
-    border-radius: 1em;
-    background-color: rgba(80, 252, 120, 0.85);
-    filter: drop-shadow(1px 1px 1px black);
-  }
-
-#submit-item {
-    margin: 1em auto;
-    min-width: 400px;
-    max-width: 1000px;
-    padding: 2em;
-    border: 1px solid #507EFC;
-    border-radius: 1em;
-    background-color: rgba(80, 252, 120, 0.85);
-    filter: drop-shadow(1px 1px 1px black);
+  background-color: rgb(252, 206, 150, 0.5);
 }
   
-  label {
-    text-shadow: 1px 1px black;
-    color: white;
-  }
+h1 {
+  text-align: center;
+}
   
-  .grid-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 20px;
-    padding: 2em;
-  }
+form {
+  margin: 10em auto;
+  min-width: 400px;
+  max-width: 1000px;
+  padding: 2em;
+  border: 1px solid #507EFC;
+  border-radius: 1em;
+  background-color: rgba(80, 252, 120, 0.85);
+  filter: drop-shadow(1px 1px 1px black);
+}
   
+label {
+  text-shadow: 1px 1px black;
+  color: white;
+}
+  
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+  padding: 2em;
+}  

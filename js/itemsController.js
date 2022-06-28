@@ -1,4 +1,4 @@
-export class ItemsController {
+class ItemsController {
     constructor(currentId = 0) {
         this.items = [];
         this.currentId = currentId;
@@ -13,6 +13,11 @@ export class ItemsController {
             createdAt: createdAt
         };
         this.items.push(item);
+        if (localStorage.getItem("items")) {
+            const items = JSON.parse(localStorage.getItem("items"));
+            items.push(item);
+            localStorage.setItem("items", JSON.stringify(items));
+        }
     }
 
     loadItemsFromLocalStorage() {
@@ -26,3 +31,5 @@ export class ItemsController {
         }
     }
 }
+
+export default ItemsController;
