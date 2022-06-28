@@ -1,46 +1,41 @@
 import {ItemsController} from './itemsController.js';
 
 const itemsController = new ItemsController(0);
-const newItem = document.querySelector('#add-item');
+const newItem = document.querySelector('#submit-item');
+const listOfProducts = document.getElementById('list-products');
 
-/*function addItemCard(item) {
-    const itemHTML = '<div class="card">\n' +
-          '<img src="'+currentItem.imageUrl+'" class="card-img-top" alt="image">\n' +
-          '<div class="card-body">\n' +
-            '<h5 class="card-title">'+currentItem.name+'</h5>\n' +
-            '<p class="card-text">'+currentItem.description+'</p>\n' +
-            '<button type="submit" class="btn btn-primary">Buy Item</button>\n' +
-          '</div>\n' + '</div>';
-    const itemsContainer = document.getElementById('#list-products');
-    itemsContainer.innerHTML += itemHTML;
-}*/
-
-function createElement( str ) {
-    var frag = document.createDocumentFragment();
-
-    var elem = document.createElement('div');
-    elem.innerHTML = str;
-
-    while (elem.childNodes[0]) {
-        frag.appendChild(elem.childNodes[0]);
-    }
-    return frag;
-}
-
-function addItemCard(item) {
-    const itemHTML = '<div class="card">\n' +
-                     '<img src="' + item.imageUrl+ '" class="card-img-top" alt="Image of jewlery">\n' +
-                     '<div class="card-body">\n' +
-                     '<h5 class="card-title">' + item.name + '</h5>\n' +
-                     '<p class="card-text">'+ item.description +'</p>\n' +
-                     '<button type="submit" class="btn btn-primary">Buy Item</button>\n' +
-                     '</div>\n' +
-                     '</div>';
-    let newHTML = createElement(itemHTML);
-    const itemsContainer = document.getElementById('list-products');
-    itemsContainer.innerHTML += itemHTML;
-}
+let createCard = (task) => {
+      let newCard = document.createElement('div');
+      newCard.className = 'card';
   
+      let newImage = document.createElement('img');
+      newImage.src = task.imageUrl;
+      newImage.className = 'card-img-top';
+  
+      let newCardBody = document.createElement('div');
+      newCardBody.className = 'card-body';
+
+      let newName = document.createElement('h5');
+      newName.innerText = task.name;
+      newName.className = 'card-title';
+  
+      let newDescription = document.createElement('p');
+      newDescription.className = 'card-text';
+      newDescription.innerText = task.description;
+
+      let newButton = document.createElement('button');
+      newButton.className = 'btn btn-primary';
+      newButton.innerText = "Buy Item";
+
+      listOfProducts.appendChild(newCard);
+      newCard.appendChild(newImage);
+      newCard.appendChild(newCardBody);
+      newCardBody.append(newName);
+      newCardBody.append(newDescription);
+      newCardBody.append(newButton);
+}
+
+//This is entirely correct Adds to array 
 newItem.addEventListener('submit', (event) => {
     event.preventDefault();
     const newItemNameInput = document.querySelector('#name');
@@ -51,7 +46,32 @@ newItem.addEventListener('submit', (event) => {
     const image = newItemImage.value;
     const createdAt = new Date();
     itemsController.addItem(name, description, image, createdAt);
+    const currentItem = itemsController.items[itemsController.currentId - 1];
+    createCard(currentItem);
     newItemNameInput.value = '';
     newItemDescription.value = '';
     newItemImage.value = '';
 });
+
+function loadStorageSampleData(){
+    if(!localStorage.getItem("items")){
+        const sampleItems = [{'name':'bracelets',
+        'img':'https://www.gs1india.org/media/Juice_pack.jpg',
+        'description':'Charm bracelets made of silver.'},
+        {'name':'leather shoes',
+        'img':'https://s3-ap-southeast-1.amazonaws.com/www8.fairprice.com.sg/fpol/media/images/product/XL/13086598_LXL1.jpg',
+          'description': 'Shoes made of leather.'}];
+        localStorage.setItem("items", JSON.stringify(sampleItems));
+    }
+}
+
+function loadCardsListFromItemsController(){
+    for(let i = 0, size = itemsController.items.length; i < size ; i++){
+        const item = itemsController.items[i];
+        createCard(item);
+    }
+}
+
+loadStorageSampleData();
+itemsController.loadItemsFromLocalStorage();
+loadCardsListFromItemsController();

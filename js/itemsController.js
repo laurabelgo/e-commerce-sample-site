@@ -14,4 +14,15 @@ export class ItemsController {
         };
         this.items.push(item);
     }
+
+    loadItemsFromLocalStorage() {
+        const storageItems = localStorage.getItem("items");
+        if (storageItems) {
+            const items = JSON.parse(storageItems)
+            for (let i = 0, size = items.length; i < size; i++) {
+                const item = items[i];
+                this.items.push(item);
+            }
+        }
+    }
 }
