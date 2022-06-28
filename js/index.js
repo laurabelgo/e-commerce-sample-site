@@ -1,7 +1,6 @@
-import {ItemsController} from './itemsController.js';
+import ItemsController from './itemsController.js';
 
-const itemsController = new ItemsController(0);
-const newItem = document.querySelector('#submit-item');
+const itemsController = new ItemsController();
 const listOfProducts = document.getElementById('list-products');
 
 let createCard = (task) => {
@@ -34,24 +33,6 @@ let createCard = (task) => {
       newCardBody.append(newDescription);
       newCardBody.append(newButton);
 }
-
-//This is entirely correct Adds to array 
-newItem.addEventListener('submit', (event) => {
-    event.preventDefault();
-    const newItemNameInput = document.querySelector('#name');
-    const newItemDescription = document.querySelector('#description');
-    const newItemImage = document.querySelector('#image');
-    const name = newItemNameInput.value;
-    const description = newItemDescription.value;
-    const image = newItemImage.value;
-    const createdAt = new Date();
-    itemsController.addItem(name, description, image, createdAt);
-    const currentItem = itemsController.items[itemsController.currentId - 1];
-    createCard(currentItem);
-    newItemNameInput.value = '';
-    newItemDescription.value = '';
-    newItemImage.value = '';
-});
 
 function loadStorageSampleData(){
     if(!localStorage.getItem("items")){
