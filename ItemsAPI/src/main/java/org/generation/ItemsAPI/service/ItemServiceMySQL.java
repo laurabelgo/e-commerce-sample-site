@@ -19,6 +19,7 @@ public class ItemServiceMySQL implements ItemService {
     public Item save(Item item) {
         return itemRepository.save(item);
     }
+
     @Override
     public void delete(int itemId) {
         itemRepository.deleteById(itemId);
