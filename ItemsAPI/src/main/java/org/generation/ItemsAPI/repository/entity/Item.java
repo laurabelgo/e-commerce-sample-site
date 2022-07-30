@@ -14,6 +14,7 @@ public class Item {
     private String name;
     private String description;
     private String imageUrl;
+
     public Item() {}
 
     public Item(ItemDto itemDto) {

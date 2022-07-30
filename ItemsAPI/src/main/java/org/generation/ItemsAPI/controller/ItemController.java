@@ -15,9 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping( "/item" )
+@RequestMapping("/item")
 public class ItemController {
-
     final ItemService itemService;
 
     public ItemController(@Autowired ItemService itemService) {
