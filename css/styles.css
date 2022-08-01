@@ -1,30 +1,65 @@
 body {
-  background-color: rgb(252, 206, 150, 0.5);
+  /*background-color: rgb(252, 206, 150, 0.5);*/
+  background-color: rgb(206, 97, 239);
 }
-  
+
 h1 {
   text-align: center;
+  font-family: "Arima", cursive;
+  font-weight: bold;
+  color: #FFCCE5;
+  text-shadow: 2px 2px #32324e;
+  margin: 10px;
 }
-  
+
+p {
+  text-align: center;
+  font-family: "Arima", cursive;
+}
+
+.about-us {
+  margin: 20px;
+  font-size: 20px;
+}
+
+.card-title, .card-text {
+  text-align: left;
+  font-family: sans-serif;
+}
+
 form {
   margin: 10em auto;
   min-width: 400px;
   max-width: 1000px;
   padding: 2em;
-  border: 1px solid #507EFC;
+  border: 1px solid #507efc;
   border-radius: 1em;
-  background-color: rgba(80, 252, 120, 0.85);
+  background-color: skyblue;
   filter: drop-shadow(1px 1px 1px black);
 }
-  
+
 label {
   text-shadow: 1px 1px black;
   color: white;
 }
-  
+
 .grid-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 20px;
   padding: 2em;
-}  
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  padding-top: 0.5em;
+  border-top: 5px dotted hotpink;
+  border-bottom: 5px dotted hotpink;
+}
+
+footer p {
+  color: skyblue;
+  font-size: 1.5em;
+  text-shadow: 2px 2px #507efc;
+}
