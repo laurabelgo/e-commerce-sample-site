@@ -12,7 +12,7 @@ newItem.addEventListener('submit', (event) => {
     const description = newItemDescription.value;
     const image = newItemImage.value;
     const createdAt = new Date();
-    itemsController.addItem(name, description, image, createdAt);
+    itemsController.addItem(name, description, image);
     newItemNameInput.value = '';
     newItemDescription.value = '';
     newItemImage.value = '';

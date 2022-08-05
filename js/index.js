@@ -1,37 +1,37 @@
 import ItemsController from './itemsController.js';
 
 const itemsController = new ItemsController();
-const listOfProducts = document.getElementById('list-products');
+const listOfProducts = document.querySelector('#list-products');
 
 let createCard = (task) => {
-      let newCard = document.createElement('div');
-      newCard.className = 'card';
+        let newCard = document.createElement('div');
+        newCard.className = 'card';
   
-      let newImage = document.createElement('img');
-      newImage.src = task.imageUrl;
-      newImage.className = 'card-img-top';
+        let newImage = document.createElement('img');
+        newImage.src = task.imageUrl;
+        newImage.className = 'card-img-top';
   
-      let newCardBody = document.createElement('div');
-      newCardBody.className = 'card-body';
+        let newCardBody = document.createElement('div');
+        newCardBody.className = 'card-body';
 
-      let newName = document.createElement('h5');
-      newName.innerText = task.name;
-      newName.className = 'card-title';
+        let newName = document.createElement('h5');
+        newName.innerText = task.name;
+        newName.className = 'card-title';
   
-      let newDescription = document.createElement('p');
-      newDescription.className = 'card-text';
-      newDescription.innerText = task.description;
+        let newDescription = document.createElement('p');
+        newDescription.className = 'card-text';
+        newDescription.innerText = task.description;
 
-      let newButton = document.createElement('button');
-      newButton.className = 'btn btn-primary';
-      newButton.innerText = "Buy Item";
-
-      listOfProducts.appendChild(newCard);
-      newCard.appendChild(newImage);
-      newCard.appendChild(newCardBody);
-      newCardBody.append(newName);
-      newCardBody.append(newDescription);
-      newCardBody.append(newButton);
+        let newButton = document.createElement('button');
+        newButton.className = 'btn btn-primary';
+        newButton.innerText = "Buy Item";
+    
+        listOfProducts.appendChild(newCard);
+        newCard.appendChild(newImage);
+        newCard.appendChild(newCardBody);
+        newCardBody.append(newName);
+        newCardBody.append(newDescription);
+        newCardBody.append(newButton);
 }
 
 function loadStorageSampleData(){
